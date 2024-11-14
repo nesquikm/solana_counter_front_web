@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
-import { program } from "../anchor/setup";
-
-import { PublicKey } from "@solana/web3.js";
-import { Buffer } from "buffer";
+import { counterPDA, program } from "../anchor/setup";
 
 export default function IncrementButton() {
   const { publicKey, sendTransaction } = useWallet();
@@ -15,12 +12,6 @@ export default function IncrementButton() {
 
     setIsLoading(true);
 
-    const [counterPDA] = PublicKey.findProgramAddressSync(
-      [Buffer.from("counter")],
-      program.programId
-    );
-
-    console.log("!!!!!!", counterPDA);
     try {
       // Create a transaction to invoke the increment function
       const transaction = await program.methods
