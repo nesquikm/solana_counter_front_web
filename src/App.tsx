@@ -28,7 +28,7 @@ function App() {
       // if desired, manually define specific/custom wallets here (normally not required)
       // otherwise, the wallet-adapter will auto detect the wallets a user's browser has available
     ],
-    [network],
+    [network]
   );
 
   return (
@@ -39,6 +39,13 @@ function App() {
           <h1>Hello Solana</h1>
           <CounterState />
           <IncrementButton />
+          <footer>
+            <p>Source code:</p>
+            <p>
+              <a href="https://github.com/nesquikm/solana_counter" target="_blank">solana_counter</a><br />
+              <a href="https://github.com/nesquikm/solana_counter_front_web" target="_blank">solana_counter_front_web</a>
+            </p>
+          </footer>
         </WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>
